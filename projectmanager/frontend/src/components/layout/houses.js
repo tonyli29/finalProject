@@ -1,47 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import House from "./house";
+import axios from "axios";
+import Search from "./search";
 
 const Houses = () => {
-  const [houses, setHouses] = useState([
-    {
-      id: 1,
-      img: "no image",
-      price: 500000,
-      address: "330 Runneymede Road",
-      description: "bad house",
-      created_ad: "2019-04-11T01:52:08.823955Z",
-      bedrooms: 5,
-      bathrooms: 2,
-      parking: false
-    },
-    {
-      id: 2,
-      img:
-        "https://pmcvariety.files.wordpress.com/2018/07/bradybunchhouse_sc11.jpg?w=1000&h=563&crop=1",
-      price: 400000000,
-      address: "253 College St, Toronto",
-      description: "big house nice city",
-      created_ad: "2019-04-11T02:25:15.089950Z",
-      bedrooms: 7,
-      bathrooms: 4,
-      parking: true
-    },
-    {
-      id: 3,
-      img:
-        "https://pmcvariety.files.wordpress.com/2018/07/bradybunchhouse_sc11.jpg?w=1000&h=563&crop=1",
-      price: 400000000,
-      address: "253 College St, Toronto",
-      description: "big house nice city",
-      created_ad: "2019-04-11T02:25:18.020255Z",
-      bedrooms: 7,
-      bathrooms: 4,
-      parking: true
-    }
-  ]);
+  const [houses, setHouses] = useState([]);
+  let userPosition = "";
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/houses").then(res => {
+      setHouses(res.data);
+    });
+  }, []);
+
+  const sortByPrice = e => {
+    let housesCopy = houses.slice();
+    setHouses(housesCopy.sort((a, b) => a.price - b.price));
+    console.log("test");
+  };
+
+  const userLocation = e => {
+    navigator.geolocation.getCurrentPosition(position => {
+      userPosition = position;
+      console.log(userPosition);
+    });
+  };
+
+  const getResult = e => {
+    e.preventDefault();
+    console.log("work");
+  };
 
   return (
     <div className="house-list">
+      <Search getResult={getResult} />
+      <button onClick={() => sortByPrice()}>Sort By price</button>
+      <button onClick={() => userLocation()}>location</button>
       <ul>
         {houses.map(home => (
           <House
@@ -53,6 +47,7 @@ const Houses = () => {
             bedrooms={home.bedrooms}
             bathrooms={home.bathrooms}
             parking={home.parking}
+            id={home.id}
           />
         ))}
       </ul>

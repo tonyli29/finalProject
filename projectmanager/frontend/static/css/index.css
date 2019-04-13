@@ -1,0 +1,19 @@
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+.house-box {
+  border: 2px solid black;
+  display: grid;
+}
+.house-box a {
+  text-decoration: none;
+}
+.house-box a:visited {
+  color: black;
+}
+div.trim {
+  max-height: 500px;
+  max-width: 500px;
+  overflow: hidden;
+}

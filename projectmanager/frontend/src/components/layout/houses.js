@@ -5,14 +5,18 @@ import Search from "./search";
 
 const Houses = () => {
   const [houses, setHouses] = useState([]);
+  const [filter, setFilter] = useState([]);
   let userPosition = "";
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/houses").then(res => {
-      setHouses(res.data);
-    });
+    axios
+      .get(
+        `http://localhost:8000/api/houses/?city=&bedrooms=&bathrooms=&property_type=`
+      )
+      .then(res => {
+        setHouses(res.data);
+      });
   }, []);
-
   const sortByPrice = e => {
     let housesCopy = houses.slice();
     setHouses(housesCopy.sort((a, b) => a.price - b.price));
@@ -27,8 +31,8 @@ const Houses = () => {
   };
 
   const getResult = e => {
+    const houseValue = e.target.elements.houseCity.value;
     e.preventDefault();
-    console.log("work");
   };
 
   return (

@@ -24,7 +24,6 @@ const House = props => {
         let lat = response.data.results[0].geometry.location.lat;
         let long = response.data.results[0].geometry.location.lng;
         let output = `<h1>${long}, ${lat}</h1>`;
-        console.log(response);
         document.querySelector("header").innerHTML = output;
       })
       .catch(error => {
@@ -40,8 +39,8 @@ const House = props => {
             <div className="trim">
               <img src={props.img} />
             </div>
-            <h1>{props.price}</h1>
-            <span>{props.address}</span>
+            <h1>{props.address}</h1>
+            <span>${props.price}</span>
             <br />
             <span>{props.description}</span>
             <br />
@@ -53,6 +52,7 @@ const House = props => {
         </li>
       </a>
       <button onClick={() => geoCode(props.address)}>HHH</button>
+      {/* Testing geo code finder but does work exactly as i like */}
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ContactForm from "./form";
 
 const HouseView = props => {
   const [house, setHouse] = useState([]);
@@ -27,6 +28,7 @@ const HouseView = props => {
         <span>Bathrooms: {house.bathrooms}</span>
         <br />
       </section>
+      <ContactForm address={house.address} />
     </div>
   );
 };

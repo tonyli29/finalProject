@@ -17,14 +17,17 @@ const House = props => {
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           address: address,
-          key: "AIzaSyA2MmHNiHQuuBKpMsThUJzIdDBiiy8G8c0"
+          key: "AIzaSyCZfUHxZLHtErCuMSQgdUDvMDy0OTKoaF4"
         }
       })
       .then(function(response) {
+        if (response.data.error_message) {
+          console.log("Error", response);
+        }
         let lat = response.data.results[0].geometry.location.lat;
         let long = response.data.results[0].geometry.location.lng;
-        let output = `<h1>${long}, ${lat}</h1>`;
-        document.querySelector("header").innerHTML = output;
+        let output = { latitude: lat, longitude: long };
+        console.log(output);
       })
       .catch(error => {
         console.log(error);
@@ -36,18 +39,16 @@ const House = props => {
       <a href={home}>
         <li>
           <section>
-            <div className="trim">
-              <img src={props.img} />
-            </div>
+            <img src={props.img} />
+
             <h1>{props.address}</h1>
             <span>${props.price}</span>
-            <br />
-            <span>{props.description}</span>
             <br />
             <span>Bedrooms: {props.bedrooms}</span>
             <br />
             <span>Bathrooms: {props.bathrooms}</span>
             <br />
+            <span>SqFt: {props.bathrooms}</span>
           </section>
         </li>
       </a>

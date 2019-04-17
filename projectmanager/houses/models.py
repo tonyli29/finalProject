@@ -18,3 +18,4 @@ class House(models.Model):
     basement = models.BooleanField()
 
     
+    

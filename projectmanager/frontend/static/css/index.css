@@ -1,10 +1,24 @@
 * {
   font-family: "Open Sans", sans-serif;
 }
-
+header a {
+  text-decoration: none;
+}
+header a:visited {
+  color: black;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
 .house-box {
   border: 2px solid black;
   display: grid;
+  width: 300px;
+}
+.house-box section {
+  display: inline-block;
 }
 .house-box a {
   text-decoration: none;
@@ -12,8 +26,32 @@
 .house-box a:visited {
   color: black;
 }
-div.trim {
-  max-height: 500px;
-  max-width: 500px;
-  overflow: hidden;
+.house-box img {
+  max-width: 300px;
+}
+.house-details img {
+  max-height: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-box {
+  width: 300px;
+  height: 100px;
+  font-size: 0.75em;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}
+.search-form input {
+  width: 100%;
+}
+#map {
+  height: 900px;
+  width: 900px;
 }

@@ -4,36 +4,22 @@ import axios from "axios";
 import MapView from "./map/map";
 import Search from "./search";
 
-const CityFilter = props => {
+const FeaturedListings = () => {
   const [houses, setHouses] = useState([]);
+  const [filter, setFilter] = useState([]);
   const [addresses, setAddresses] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const mapsKey = "AIzaSyCZfUHxZLHtErCuMSQgdUDvMDy0OTKoaF4";
   let userPosition = "";
-
-  let params = props.match.params.neighbourhood;
-  const capitalizeFirstLetter = string => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
-  const titleCase = str => {
-    let splitStr = str.toLowerCase().split(" ");
-    for (let i = 0; i < splitStr.length; i++) {
-      // You do not need to check if i is larger than splitStr length, as your for does that for you
-      // Assign it back to the array
-      splitStr[i] =
-        splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-    }
-    // Directly return the joined string
-    return splitStr.join(" ");
-  };
-  let word = titleCase(params);
 
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/houses/?neighborhood=${word}&bedrooms=&bathrooms=&property_type=`
+        `http://localhost:8000/api/houses/?neighboorhood=&bedrooms=&bathrooms=&property_type=`
       )
       .then(res => {
         setHouses(res.data);
+        // geoList();
       });
   }, []);
 
@@ -80,12 +66,6 @@ const CityFilter = props => {
         });
     });
   }, [houses]);
-
-  const sortByPrice = e => {
-    let housesCopy = houses.slice();
-    setHouses(housesCopy.sort((a, b) => a.price - b.price));
-  };
-
   const userLocation = e => {
     navigator.geolocation.getCurrentPosition(position => {
       userPosition = position;
@@ -94,26 +74,14 @@ const CityFilter = props => {
   };
 
   return (
-    <div className="house-details">
-      <h1>Houses in {word}</h1>
-      <ul>
-        {houses.map(home => (
-          <House
-            key={home.id}
-            img={home.img}
-            price={home.price}
-            address={home.address}
-            description={home.description}
-            bedrooms={home.bedrooms}
-            bathrooms={home.bathrooms}
-            sqft={home.sqft}
-            id={home.id}
-          />
-        ))}
-      </ul>
-      {loaded && <MapView addresses={addresses} userPosition={userPosition} />}
+    <div className="overlay">
+      <div className="map-view">
+        {loaded && (
+          <MapView addresses={addresses} userPosition={userPosition} />
+        )}
+      </div>
     </div>
   );
 };
 
-export default CityFilter;
+export default FeaturedListings;

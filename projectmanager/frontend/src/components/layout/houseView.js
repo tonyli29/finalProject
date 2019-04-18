@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ContactForm from "./form";
-
+import HouseImage from "./houseImages";
 const HouseView = props => {
   const [house, setHouse] = useState([]);
+  const [contact, setContact] = useState({
+    isOpen: false
+  });
 
+  const images = house.images;
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/houses/${props.match.params.id}`)
@@ -18,8 +22,8 @@ const HouseView = props => {
       <section>
         <img src={house.img} />
 
-        <h1>{house.price}</h1>
-        <span>{house.address}</span>
+        <h1>{house.address}</h1>
+        <span>$$${house.price}</span>
         <br />
         <span>{house.description}</span>
         <br />
@@ -28,7 +32,15 @@ const HouseView = props => {
         <span>Bathrooms: {house.bathrooms}</span>
         <br />
       </section>
-      <ContactForm address={house.address} />
+      <div className="sub-images">
+        <HouseImage images={house.images} />
+      </div>
+      <button onClick={() => setContact({ isOpen: true })}>Contact</button>
+      <ContactForm
+        address={house.address}
+        isOpen={contact.isOpen}
+        onClose={() => setContact({ isOpen: false })}
+      />
     </div>
   );
 };

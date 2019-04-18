@@ -41,19 +41,19 @@ const House = props => {
           <section>
             <img src={props.img} />
 
-            <h1>{props.address}</h1>
-            <span>${props.price}</span>
-            <br />
-            <span>Bedrooms: {props.bedrooms}</span>
-            <br />
-            <span>Bathrooms: {props.bathrooms}</span>
-            <br />
-            <span>SqFt: {props.bathrooms}</span>
+            <div className="text-box">
+              <h1>{props.address}</h1>
+              <span>${props.price}</span>
+              <br />
+              <span>Bedrooms: {props.bedrooms}</span>
+              <br />
+              <span>Bathrooms: {props.bathrooms}</span>
+              <br />
+              <span>SqFt: {props.sqft}</span>
+            </div>
           </section>
         </li>
       </a>
-      <button onClick={() => geoCode(props.address)}>HHH</button>
-      {/* Testing geo code finder but does work exactly as i like */}
     </div>
   );
 };

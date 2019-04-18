@@ -12,6 +12,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import FeaturedListings from "./layout/featured";
 
 const App = props => {
   return (
@@ -27,7 +28,12 @@ const App = props => {
           <Route exact path="/home" component={Houses} />
           <Route exact path="/home/:id" component={HouseView} />
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/city/:city" component={CityFilter} />
+          <Route
+            exact
+            path="/neighbourhood/:neighbourhood"
+            component={CityFilter}
+          />
+          <Route exact path="/featured" component={FeaturedListings} />
         </Switch>
       </Router>
     </div>

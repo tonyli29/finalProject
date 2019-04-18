@@ -3,10 +3,11 @@ import React from "react";
 const Search = props => {
   return (
     <form onSubmit={props.getResult} className="search-form">
-      <input list="citys" name="city" />
+      <input list="citys" name="neighbourhood" />
       <datalist id="citys">
-        <option value="Calgary" />
-        <option value="Toronto" />
+        <option value="Parkdale" />
+        <option value="Royal Oak" />
+        <option value="Valley Ridge" />
       </datalist>
     </form>
   );

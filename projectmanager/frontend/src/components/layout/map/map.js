@@ -19,12 +19,6 @@ const MapView = props => {
   const initMap = () => {
     let real_addresses = props.addresses;
 
-    // let fake_addresses = [
-    //   { name: "Big House", coord: { lat: 51.04427, lng: -114.062019 } },
-    //   { name: "Medium House", coord: { lat: 51.058759, lng: -114.138481 } },
-    //   { name: "Small House", coord: { lat: 51.074275, lng: -114.074478 } }
-    // ];
-
     console.log("Real Addresses", real_addresses);
     //console.log("Fake Addresses", fake_addresses);
 
@@ -32,17 +26,6 @@ const MapView = props => {
       center: { lat: 51.04427, lng: -114.062019 },
       zoom: 10
     });
-
-    // debugger;
-
-    // fake_addresses.forEach(location => {
-    //   console.log("Adding FaKE Marker at: ", location);
-    //   let marker = new window.google.maps.Marker({
-    //     position: location.coord,
-    //     map: map,
-    //     title: location.name
-    //   });
-    // });
 
     real_addresses.forEach(location => {
       console.log("Adding Real Address Marker at: ", location);

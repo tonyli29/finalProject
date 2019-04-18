@@ -15,7 +15,7 @@ const Houses = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/houses/?city=&bedrooms=&bathrooms=&property_type=`
+        `http://localhost:8000/api/houses/?neighboorhood=&bedrooms=&bathrooms=&property_type=`
       )
       .then(res => {
         setHouses(res.data);
@@ -71,6 +71,14 @@ const Houses = () => {
     let housesCopy = houses.slice();
     setHouses(housesCopy.sort((a, b) => a.price - b.price));
   };
+  const sortBySize = e => {
+    let housesCopy = houses.slice();
+    setHouses(housesCopy.sort((a, b) => b.sqft - a.sqft));
+  };
+  const sortByYear = e => {
+    let housesCopy = houses.slice();
+    setHouses(housesCopy.sort((a, b) => b.year_built - a.year_built));
+  };
 
   const userLocation = e => {
     navigator.geolocation.getCurrentPosition(position => {
@@ -117,6 +125,12 @@ const Houses = () => {
     <div className="all-house">
       <div className="house-list">
         <button onClick={() => sortByPrice()}>Sort By price</button>
+        <button onClick={() => sortBySize()}>
+          Sort By sqft {"(high to low)"}{" "}
+        </button>
+        <button onClick={() => sortByYear()}>
+          Sort By Year{"(Newest to oldest)"}{" "}
+        </button>
         <ul>
           {houses.map(home => (
             <House

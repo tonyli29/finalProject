@@ -120,3 +120,12 @@ li {
   top: 25%;
   left: 25%;
 }
+.nav-bar a {
+  margin-right: 10px;
+}
+
+.sub-images img {
+  display: inline-block;
+  max-height: 150px;
+  padding-right: 10px;
+}

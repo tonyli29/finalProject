@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ContactForm from "./form";
-import HouseImage from "./houseImages";
-const HouseView = props => {
+axios.defaults.xsrfCookieName = "csrftoken";
+axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+import HouseImage from "../houseImages";
+import { Link } from "react-router-dom";
+const EditHouseView = props => {
   const [house, setHouse] = useState([]);
-  const [contact, setContact] = useState({
-    isOpen: false
-  });
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/houses/${props.match.params.id}`)
@@ -14,6 +13,16 @@ const HouseView = props => {
         setHouse(res.data);
       });
   }, []);
+
+  const handleDelete = e => {
+    axios
+      .delete(`http://localhost:8000/api/houses/${props.match.params.id}`)
+      .then(res => {
+        if (res.status === 204) {
+          props.history.push("/edit");
+        }
+      });
+  };
 
   return (
     <div className="house-details">
@@ -33,14 +42,12 @@ const HouseView = props => {
         </div>
       </section>
       <HouseImage images={house.images || []} />
-      <button onClick={() => setContact({ isOpen: true })}>Contact</button>
-      <ContactForm
-        address={house.address}
-        isOpen={contact.isOpen}
-        onClose={() => setContact({ isOpen: false })}
-      />
+
+      <button type="submit" onClick={() => handleDelete()}>
+        Delete
+      </button>
     </div>
   );
 };
 
-export default HouseView;
+export default EditHouseView;

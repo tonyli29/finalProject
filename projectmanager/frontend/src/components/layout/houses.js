@@ -143,6 +143,9 @@ const Houses = () => {
               bathrooms={home.bathrooms}
               sqft={home.sqft}
               id={home.id}
+              neighborhood={home.neighborhood}
+              stories={home.number_of_stories}
+              year_built={home.year_built}
             />
           ))}
         </ul>

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'houses',
     'rest_framework',
     'frontend',
-    'django_filters'
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -74,9 +74,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'projectmanager.wsgi.application'
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
 }
-
+CSRF_COOKIE_NAME = "csrftoken"
+CSRF_HEADER_NAME = "HTTP_X_CSRFTOKEN"
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases

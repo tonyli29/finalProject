@@ -50,6 +50,8 @@ const House = props => {
               <span>Bathrooms: {props.bathrooms}</span>
               <br />
               <span>SqFt: {props.sqft}</span>
+              <span>Neighbourhood: {props.neighbourhood}</span>
+              <span>Year Built: {props.year_built}</span>
             </div>
           </section>
         </li>

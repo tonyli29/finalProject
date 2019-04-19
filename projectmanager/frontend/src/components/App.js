@@ -6,6 +6,9 @@ import HouseView from "./layout/houseView";
 import NavBar from "./layout/navBar";
 import Testing from "./layout/testing";
 import CityFilter from "./layout/cityFilter";
+import Edit from "./layout/editview/edit";
+import EditHouseView from "./layout/editview/editHouseView";
+import AddHouse from "./layout/editview/add";
 import {
   HashRouter as Router,
   Route,
@@ -27,6 +30,7 @@ const App = props => {
         <Switch>
           <Route exact path="/home" component={Houses} />
           <Route exact path="/home/:id" component={HouseView} />
+          <Route exact path="/homeEdit/:id" component={EditHouseView} />
           <Route exact path="/" component={LandingPage} />
           <Route
             exact
@@ -34,6 +38,9 @@ const App = props => {
             component={CityFilter}
           />
           <Route exact path="/featured" component={FeaturedListings} />
+          {/* testing  */}
+          <Route exact path="/edit" component={Edit} />
+          <Route exact path="/edit/add" component={AddHouse} />
         </Switch>
       </Router>
     </div>

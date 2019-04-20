@@ -2,10 +2,10 @@ from django.db import models
 
 
 class House(models.Model):
-    img = models.CharField(max_length=300, default="no image")
+    img = models.CharField(max_length=1000, default="no image")
     price = models.IntegerField()
     address = models.CharField(max_length=200)
-    description = models.TextField(max_length=500)
+    description = models.TextField(max_length=1500)
     bedrooms = models.IntegerField(default=0)
     bathrooms = models.IntegerField(default=0)
     property_type = models.CharField(max_length=100)

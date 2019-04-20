@@ -41,6 +41,8 @@ const Edit = () => {
               neighborhood={home.neighborhood}
               stories={home.number_of_stories}
               year_built={home.year_built}
+              property_type={home.property_type}
+              basement={home.basement}
             />
           ))}
         </ul>

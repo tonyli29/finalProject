@@ -129,3 +129,7 @@ li {
   max-height: 150px;
   padding-right: 10px;
 }
+
+.edit-form label {
+  display: block;
+}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class House(models.Model):
@@ -16,6 +17,7 @@ class House(models.Model):
     year_built = models.IntegerField(default=0)
     number_of_stories = models.IntegerField(default=0)
     basement = models.BooleanField()
+    owner = models.ForeignKey(User, related_name="houses", on_delete=models.CASCADE, null=True)
 
 class HouseImages(models.Model):
     house = models.ForeignKey(House, related_name='images', on_delete=models.CASCADE)

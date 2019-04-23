@@ -5,7 +5,7 @@ const HouseImage = props => {
   return (
     <div className="sub-images">
       {props.images.map(image => (
-        <img src={image} />
+        <img key={props.images.indexOf(image)} src={image} />
       ))}
     </div>
   );

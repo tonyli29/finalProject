@@ -4,6 +4,8 @@ axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 import HouseImage from "../houseImages";
 import { Link } from "react-router-dom";
+import AddImage from "./addImage";
+
 const EditHouseView = props => {
   const [house, setHouse] = useState([]);
   useEffect(() => {
@@ -28,7 +30,6 @@ const EditHouseView = props => {
   };
 
   const handleUpdate = e => {
-    e.preventDefault();
     const houseUpdate = {
       img: event.target.elements.image.value,
       price: event.target.elements.price.value,
@@ -75,15 +76,15 @@ const EditHouseView = props => {
       <form className="edit-form" onSubmit={handleUpdate}>
         <label>
           Thumbnail image:
-          <input type="text" name="image" value={house.img} />
+          <input type="text" name="image" defaultValue={house.img} />
         </label>
         <label>
           House Address:
-          <input type="text" name="address" value={house.address} />
+          <input type="text" name="address" defaultValue={house.address} />
         </label>
         <label>
           Price:
-          <input type="text" name="price" value={house.price} />
+          <input type="text" name="price" defaultValue={house.price} />
         </label>
         <label>
           Description:
@@ -95,38 +96,55 @@ const EditHouseView = props => {
         </label>
         <label>
           Number of bedrooms:
-          <input type="text" name="bedrooms" value={house.bedrooms} />
+          <input type="text" name="bedrooms" defaultValue={house.bedrooms} />
         </label>
         <label>
           Number of bathrooms:
-          <input type="text" name="bathrooms" value={house.bathrooms} />
+          <input type="text" name="bathrooms" defaultValue={house.bathrooms} />
         </label>
         <label>
           Property Type:
-          <input type="text" name="property" value={house.property_type} />
+          <input
+            type="text"
+            name="property"
+            defaultValue={house.property_type}
+          />
         </label>
         <label>
           Neighbourhood:
-          <input type="text" name="neighbourhood" value={house.neighborhood} />
+          <input
+            type="text"
+            name="neighbourhood"
+            defaultValue={house.neighborhood}
+          />
         </label>
         <label>
           SqFt:
-          <input type="text" name="sqft" value={house.sqft} />
+          <input type="text" name="sqft" defaultValue={house.sqft} />
         </label>
         <label>
           Year Built:
-          <input type="text" name="yearbuilt" value={house.year_built} />
+          <input type="text" name="yearbuilt" defaultValue={house.year_built} />
         </label>
         <label>
           Number of Stories:
-          <input type="text" name="stories" value={house.number_of_stories} />
+          <input
+            type="text"
+            name="stories"
+            defaultValue={house.number_of_stories}
+          />
         </label>
-        {/* <label>
+        <label>
           Does is have a Basement:
-          <input type="checkbox" name="basement" value={house.basement} />
-        </label> */}
+          <input
+            type="checkbox"
+            name="basement"
+            defaultValue={house.basement}
+          />
+        </label>
         <button type="submit">Update</button>
       </form>
+      <AddImage houseid={props.match.params.id} />
       <button
         className="delete-button"
         type="submit"

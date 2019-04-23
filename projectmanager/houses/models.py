@@ -2,7 +2,7 @@ from django.db import models
 
 
 class House(models.Model):
-    img = models.CharField(max_length=1000, default="no image")
+    img = models.CharField(max_length=100000, default="no image")
     price = models.IntegerField()
     address = models.CharField(max_length=200)
     description = models.TextField(max_length=1500)
@@ -19,7 +19,7 @@ class House(models.Model):
 
 class HouseImages(models.Model):
     house = models.ForeignKey(House, related_name='images', on_delete=models.CASCADE)
-    images = models.TextField(max_length=1000, default="no image")
+    images = models.TextField(max_length=100000, default="no image")
 
     def __str__(self):
         return self.images

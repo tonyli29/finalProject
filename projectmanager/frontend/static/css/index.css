@@ -17,6 +17,16 @@ li {
   list-style: none;
   padding: 0;
 }
+.house-info-box {
+  display: grid;
+  font-size: 1.5em;
+}
+.house-info-box span {
+  display: block;
+}
+.house-info-box h1 {
+  margin: 0;
+}
 .house-box {
   border: 2px solid black;
   display: grid;
@@ -39,10 +49,7 @@ li {
   margin: 10px;
 }
 .house-details img {
-  max-height: 300px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
 }
 
 .search-box {
@@ -61,6 +68,10 @@ li {
   width: 100%;
 }
 #map {
+  height: 500px;
+  width: 100%;
+}
+.map-view {
   height: 500px;
   width: 100%;
 }
@@ -123,13 +134,23 @@ li {
 .nav-bar a {
   margin-right: 10px;
 }
-
+.sub-images {
+  display: flex;
+  overflow-x: scroll;
+}
 .sub-images img {
   display: inline-block;
-  max-height: 150px;
-  padding-right: 10px;
+  max-height: 300px;
 }
 
 .edit-form label {
   display: block;
+}
+.add-form label {
+  display: block;
+}
+.house-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 }

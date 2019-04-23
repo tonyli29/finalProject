@@ -38,6 +38,7 @@ const App = props => {
             component={CityFilter}
           />
           <Route exact path="/featured" component={FeaturedListings} />
+
           {/* testing  */}
           <Route exact path="/edit" component={Edit} />
           <Route exact path="/edit/add" component={AddHouse} />

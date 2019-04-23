@@ -87,40 +87,6 @@ const Houses = () => {
     });
   };
 
-  // houses.forEach(house => {
-  //   allAddress.push(house.address);
-  // });
-  // allAddress.forEach(address => {
-  //   axios
-  //     .get("https://maps.googleapis.com/maps/api/geocode/json", {
-  //       params: {
-  //         address: address,
-  //         key: "AIzaSyCZfUHxZLHtErCuMSQgdUDvMDy0OTKoaF4"
-  //       }
-  //     })
-  //     .then(function(response) {
-  //       if (response.data.error_message) {
-  //         console.log("Error", response);
-  //       }
-  //       let lat = response.data.results[0].geometry.location.lat;
-  //       let long = response.data.results[0].geometry.location.lng;
-  //       addressCol.push({
-  //         name: address,
-  //         coord: {
-  //           lat: lat,
-  //           lng: long
-  //         }
-  //       });
-
-  //       console.log("sucess block of houses.js addressCol", addressCol);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // });
-  // };
-  //window.onload = geoList();
-
   return (
     <div className="all-house">
       <div className="house-list">

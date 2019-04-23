@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-const MapView = props => {
+const DetailMap = props => {
+  const [house, setHouse] = useState([]);
+
   useEffect(() => {
     renderMap();
   }, []);
@@ -13,22 +15,15 @@ const MapView = props => {
   };
 
   const initMap = () => {
-    let real_addresses = props.addresses;
-
-    console.log("Real Addresses", real_addresses);
-
     let map = new window.google.maps.Map(document.getElementById("map"), {
       center: { lat: 51.04427, lng: -114.062019 },
       zoom: 10
     });
 
-    real_addresses.forEach(location => {
-      console.log("Adding Real Address Marker at: ", location);
-      let marker = new window.google.maps.Marker({
-        position: location.coord,
-        map: map,
-        title: location.name
-      });
+    let marker = new window.google.maps.Marker({
+      position: { lat: 51.04427, lng: -114.062019 },
+      map: map,
+      title: "jj"
     });
   };
 
@@ -44,4 +39,4 @@ function loadScript(url) {
   index.parentNode.insertBefore(script, index);
 }
 
-export default MapView;
+export default DetailMap;

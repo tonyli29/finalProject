@@ -44,7 +44,7 @@ const AddHouse = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="add-form" onSubmit={handleSubmit}>
       <label>
         Thumbnail image:
         <input type="text" name="image" />

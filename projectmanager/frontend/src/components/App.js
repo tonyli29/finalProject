@@ -9,6 +9,7 @@ import CityFilter from "./layout/cityFilter";
 import Edit from "./layout/editview/edit";
 import EditHouseView from "./layout/editview/editHouseView";
 import AddHouse from "./layout/editview/add";
+import About from "./layout/about";
 import {
   HashRouter as Router,
   Route,
@@ -32,6 +33,7 @@ const App = props => {
           <Route exact path="/home/:id" component={HouseView} />
           <Route exact path="/homeEdit/:id" component={EditHouseView} />
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/about" component={About} />
           <Route
             exact
             path="/neighbourhood/:neighbourhood"

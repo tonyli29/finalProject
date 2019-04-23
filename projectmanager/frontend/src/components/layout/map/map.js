@@ -23,7 +23,6 @@ const MapView = props => {
     });
 
     real_addresses.forEach(location => {
-      console.log("Adding Real Address Marker at: ", location);
       let marker = new window.google.maps.Marker({
         position: location.coord,
         map: map,

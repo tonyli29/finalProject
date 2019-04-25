@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { inherits } from "util";
+import axios from "axios";
 
-const DetailMap = props => {
-  const [house, setHouse] = useState([]);
-
+const DetailMap = ({ address }) => {
   useEffect(() => {
-    renderMap();
-  }, []);
+    if (address) {
+      renderMap();
+    }
+  }, [address]);
 
   const renderMap = () => {
-    loadScript(
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyCZfUHxZLHtErCuMSQgdUDvMDy0OTKoaF4&callback=initMap"
-    );
-    window.initMap = initMap;
+    if (!window.initMap) {
+      loadScript(
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyCZfUHxZLHtErCuMSQgdUDvMDy0OTKoaF4&callback=initMap"
+      );
+      window.initMap = initMap;
+    } else {
+      initMap();
+    }
   };
 
   const initMap = () => {
@@ -20,11 +26,26 @@ const DetailMap = props => {
       zoom: 10
     });
 
-    let marker = new window.google.maps.Marker({
-      position: { lat: 51.04427, lng: -114.062019 },
-      map: map,
-      title: "jj"
-    });
+    axios
+      .get("https://maps.googleapis.com/maps/api/geocode/json", {
+        params: {
+          address: address,
+          key: "AIzaSyCZfUHxZLHtErCuMSQgdUDvMDy0OTKoaF4"
+        }
+      })
+      .then(function(response) {
+        if (response.data.error_message) {
+          console.log("Error", response);
+          alert("Error");
+        }
+        let lat = response.data.results[0].geometry.location.lat;
+        let long = response.data.results[0].geometry.location.lng;
+        let marker = new window.google.maps.Marker({
+          position: { lat: lat, lng: long },
+          map: map,
+          title: address
+        });
+      });
   };
 
   return <div id="map" />;

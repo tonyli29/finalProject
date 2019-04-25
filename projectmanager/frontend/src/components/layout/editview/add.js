@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const AddHouse = () => {
-  const [newHouse, setNewHouse] = useState({
-    img: "",
-    price: 0,
-    address: "",
-    description: "",
-    bedrooms: 0,
-    bathrooms: 0,
-    property_type: "",
-    neighborhood: "",
-    sqft: 0,
-    year_built: 0,
-    number_of_stories: 0,
-    basement: false,
-    images: []
-  });
+const AddHouse = props => {
+  AddHouse.propTypes = {
+    auth: PropTypes.object.isRequired
+  };
 
   const handleSubmit = event => {
     event.preventDefault();
     const house = {
       img: event.target.elements.image.value,
+      user: props.auth.user.username,
       price: event.target.elements.price.value,
       address: event.target.elements.address.value,
       description: event.target.elements.description.value,
@@ -38,8 +28,9 @@ const AddHouse = () => {
       images: []
     };
     axios.post(`http://localhost:8000/api/houses/`, house).then(res => {
-      console.log(res);
-      console.log(res.data);
+      if (res.status === 200) {
+        props.history.push("/edit");
+      }
     });
   };
 
@@ -98,4 +89,8 @@ const AddHouse = () => {
   );
 };
 
-export default AddHouse;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(AddHouse);

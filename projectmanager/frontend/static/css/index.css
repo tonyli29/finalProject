@@ -1,5 +1,6 @@
 * {
   font-family: "Open Sans", sans-serif;
+  margin: 0;
 }
 header a {
   text-decoration: none;
@@ -17,9 +18,15 @@ li {
   list-style: none;
   padding: 0;
 }
+#add {
+  display: block;
+}
+.house-details {
+  margin: 20px 40px;
+}
 .house-info-box {
   display: grid;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 .house-info-box span {
   display: block;
@@ -48,7 +55,7 @@ li {
 .text-box {
   margin: 10px;
 }
-.house-details img {
+.main-img img {
   width: 100%;
 }
 
@@ -137,6 +144,8 @@ li {
 .sub-images {
   display: flex;
   overflow-x: scroll;
+  background-color: #f6f3ed;
+  margin-bottom: 5px;
 }
 .sub-images img {
   display: inline-block;
@@ -153,4 +162,47 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
+}
+.nav-bar {
+  background-color: #f6f3ed;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.nav-bar ul {
+  display: inline-block;
+}
+.nav-bar li {
+  float: left;
+}
+.top-row {
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.navbar-text {
+  float: right;
+  font-size: 1.5em;
+}
+.top-row h1 {
+  display: inline-block;
+}
+.top-row form {
+  display: inline-block;
+}
+
+.all-house {
+  text-align: center;
+}
+.house-list {
+  display: inline-block;
+}
+.navbar-list {
+  width: 100%;
+}
+.navbar-list .nav-item {
+  padding-right: 30px;
+}
+.nav-bar-auth {
+  float: right;
 }

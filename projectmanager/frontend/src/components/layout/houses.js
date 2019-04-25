@@ -3,6 +3,7 @@ import House from "./house";
 import axios from "axios";
 import MapView from "./map/map";
 import Search from "./search";
+import { tokenConfig } from "../../actions/auth";
 
 const Houses = () => {
   const [houses, setHouses] = useState([]);

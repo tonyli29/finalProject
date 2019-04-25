@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 import HouseImage from "../houseImages";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import AddImage from "./addImage";
 
 const EditHouseView = props => {
   const [house, setHouse] = useState([]);
+
+  EditHouseView.propTypes = {
+    auth: PropTypes.object.isRequired
+  };
+
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/houses/${props.match.params.id}`)
@@ -152,8 +156,15 @@ const EditHouseView = props => {
       >
         Delete
       </button>
+      <button onClick={() => console.log(props.auth.user.username, house.user)}>
+        HHHH
+      </button>
     </div>
   );
 };
 
-export default EditHouseView;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(EditHouseView);

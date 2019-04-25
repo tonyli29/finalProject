@@ -6,10 +6,14 @@ const MapView = props => {
   }, []);
 
   const renderMap = () => {
-    loadScript(
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyCZfUHxZLHtErCuMSQgdUDvMDy0OTKoaF4&callback=initMap"
-    );
-    window.initMap = initMap;
+    if (!window.initMap) {
+      loadScript(
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyCZfUHxZLHtErCuMSQgdUDvMDy0OTKoaF4&callback=initMap"
+      );
+      window.initMap = initMap;
+    } else {
+      initMap();
+    }
   };
 
   const initMap = () => {

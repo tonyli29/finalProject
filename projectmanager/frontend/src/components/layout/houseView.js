@@ -17,22 +17,6 @@ const HouseView = props => {
       });
   }, []);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("https://maps.googleapis.com/maps/api/geocode/json", {
-  //       params: {
-  //         address: house.address,
-  //         key: "AIzaSyCZfUHxZLHtErCuMSQgdUDvMDy0OTKoaF4"
-  //       }
-  //     })
-  //     .then(res => {
-  //       let lat = res.data.results[0].geometry.location.lat;
-  //       let long = res.data.results[0].geometry.location.lng;
-  //       setCoord({ lat: lat, lng: long });
-  //       console.log(coord);
-  //     });
-  // });
-
   const h = () => {
     if (house.basement) {
       return "Full";
@@ -45,8 +29,9 @@ const HouseView = props => {
     <div className="house-details">
       <section className="house-main">
         <div className="house-images">
-          <img src={house.img} />
-          <HouseImage images={house.images || []} />
+          <div className="main-img">
+            <img src={house.img} />
+          </div>
         </div>
         <div className="house-info-box">
           <h1>{house.address}</h1>
@@ -64,7 +49,8 @@ const HouseView = props => {
           <div />
         </div>
       </section>
-      <DetailMap />
+      <HouseImage images={house.images || []} />
+      <DetailMap address={house.address} />
 
       <button onClick={() => setContact({ isOpen: true })}>Contact</button>
       <ContactForm

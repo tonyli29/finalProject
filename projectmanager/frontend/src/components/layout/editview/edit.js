@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import House from "../house";
 import EditHouse from "./editHouse";
 import axios from "axios";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const Edit = () => {
+const Edit = props => {
   const [houses, setHouses] = useState([]);
   const [filter, setFilter] = useState([]);
   const [addresses, setAddresses] = useState([]);
@@ -11,11 +13,18 @@ const Edit = () => {
   const mapsKey = "AIzaSyCZfUHxZLHtErCuMSQgdUDvMDy0OTKoaF4";
   let userPosition = "";
 
+  Edit.propTypes = {
+    auth: PropTypes.object.isRequired
+  };
+
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/houses/?neighboorhood=&bedrooms=&bathrooms=&property_type=`
+        `http://localhost:8000/api/houses/?neighborhood=&bedrooms=&bathrooms=&property_type=&user=${
+          props.auth.user.username
+        }`
       )
+
       .then(res => {
         setHouses(res.data);
         // geoList();
@@ -24,7 +33,10 @@ const Edit = () => {
 
   return (
     <div className="all-house">
-      <a href="/#/edit/add">Add</a>
+      <h1>EDIT PAGE</h1>
+      <a id="add" href="/#/edit/add">
+        Add
+      </a>
       <div className="house-list">
         <ul>
           {houses.map(home => (
@@ -51,4 +63,8 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Edit);

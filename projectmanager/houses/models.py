@@ -17,6 +17,7 @@ class House(models.Model):
     year_built = models.IntegerField(default=0)
     number_of_stories = models.IntegerField(default=0)
     basement = models.BooleanField()
+    user = models.CharField(max_length=100, default="TonyLi")
     owner = models.ForeignKey(User, related_name="houses", on_delete=models.CASCADE, null=True)
 
 class HouseImages(models.Model):

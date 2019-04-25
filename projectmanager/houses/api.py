@@ -6,9 +6,16 @@ from django_filters import rest_framework as filters
 
 class HouseViewSet(viewsets.ModelViewSet):
     queryset = House.objects.all()
-    filterset_fields = ('neighborhood', 'bedrooms', 'bathrooms', 'property_type')
+    filterset_fields = ('neighborhood', 'bedrooms', 'bathrooms', 'property_type', 'user')
     permission_classes = [
         permissions.AllowAny
+    ]
+    serializer_class = HouseSerializer
+
+class HouseEditViewSet(viewsets.ModelViewSet):
+    queryset = House.objects.all()
+    permission_classes = [
+        permissions.IsAuthenticated
     ]
     serializer_class = HouseSerializer
 

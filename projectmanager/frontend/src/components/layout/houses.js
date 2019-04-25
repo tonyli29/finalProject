@@ -92,7 +92,7 @@ const Houses = () => {
     <div className="all-house">
       <div className="house-list">
         <button onClick={() => sortByPrice()}>Sort By price</button>
-        <button onClick={() => sortBySize()}>
+        <button className=".btn-default" onClick={() => sortBySize()}>
           Sort By sqft {"(high to low)"}{" "}
         </button>
         <button onClick={() => sortByYear()}>
@@ -113,6 +113,7 @@ const Houses = () => {
               neighborhood={home.neighborhood}
               stories={home.number_of_stories}
               year_built={home.year_built}
+              sold={home.sold}
             />
           ))}
         </ul>

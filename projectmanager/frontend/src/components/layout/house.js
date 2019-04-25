@@ -34,6 +34,12 @@ const House = props => {
       });
   };
 
+  const solde = () => {
+    if (props.sold) {
+      return <p>SOLD</p>;
+    }
+  };
+
   return (
     <div className="house-box">
       <a href={home}>
@@ -50,8 +56,9 @@ const House = props => {
               <span>Bathrooms: {props.bathrooms}</span>
               <br />
               <span>SqFt: {props.sqft}</span>
-              <span>Neighbourhood: {props.neighbourhood}</span>
+              <br />
               <span>Year Built: {props.year_built}</span>
+              <span id="sold">{solde()}</span>
             </div>
           </section>
         </li>

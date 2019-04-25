@@ -94,23 +94,35 @@ const CityFilter = props => {
   };
 
   return (
-    <div className="house-details">
-      <h1>Houses in {word}</h1>
-      <ul>
-        {houses.map(home => (
-          <House
-            key={home.id}
-            img={home.img}
-            price={home.price}
-            address={home.address}
-            description={home.description}
-            bedrooms={home.bedrooms}
-            bathrooms={home.bathrooms}
-            sqft={home.sqft}
-            id={home.id}
-          />
-        ))}
-      </ul>
+    <div className="all-house">
+      <div className="house-list">
+        <h1>Houses in {word}</h1>
+        <button onClick={() => sortByPrice()}>Sort By price</button>
+        <button className=".btn-default" onClick={() => sortBySize()}>
+          Sort By sqft {"(high to low)"}{" "}
+        </button>
+        <button onClick={() => sortByYear()}>
+          Sort By Year{"(Newest to oldest)"}{" "}
+        </button>
+        <ul>
+          {houses.map(home => (
+            <House
+              key={home.id}
+              img={home.img}
+              price={home.price}
+              address={home.address}
+              description={home.description}
+              bedrooms={home.bedrooms}
+              bathrooms={home.bathrooms}
+              sqft={home.sqft}
+              id={home.id}
+              neighborhood={home.neighborhood}
+              stories={home.number_of_stories}
+              year_built={home.year_built}
+            />
+          ))}
+        </ul>
+      </div>
       {loaded && <MapView addresses={addresses} userPosition={userPosition} />}
     </div>
   );

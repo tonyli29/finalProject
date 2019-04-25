@@ -18,6 +18,7 @@ import { Provider } from "react-redux";
 import store from "../store";
 import { loadUser } from "../actions/auth";
 import SearchCopy from "./searchCopy";
+import Footer from "./layout/footer";
 import {
   HashRouter as Router,
   Route,
@@ -59,6 +60,7 @@ const App = props => {
             </Switch>
           </Router>
         </header>
+        <Footer />
       </div>
     </Provider>
   );

@@ -19,6 +19,7 @@ class House(models.Model):
     basement = models.BooleanField()
     user = models.CharField(max_length=100, default="TonyLi")
     owner = models.ForeignKey(User, related_name="houses", on_delete=models.CASCADE, null=True)
+    sold = models.BooleanField(default=False)
 
 class HouseImages(models.Model):
     house = models.ForeignKey(House, related_name='images', on_delete=models.CASCADE)

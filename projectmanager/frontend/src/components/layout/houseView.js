@@ -52,7 +52,9 @@ const HouseView = props => {
       <HouseImage images={house.images || []} />
       <DetailMap address={house.address} />
 
-      <button onClick={() => setContact({ isOpen: true })}>Contact</button>
+      <button id="contact-btn" onClick={() => setContact({ isOpen: true })}>
+        Contact
+      </button>
       <ContactForm
         address={house.address}
         isOpen={contact.isOpen}

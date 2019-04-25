@@ -49,7 +49,6 @@ const NavBar = props => {
 
   const getResult = e => {
     const houseValue = e.target.elements.neighbourhood.value.toLowerCase();
-    e.preventDefault();
     console.log(titleCase(houseValue));
     window.location = `http://localhost:8000/#/neighbourhood/${houseValue}`;
   };

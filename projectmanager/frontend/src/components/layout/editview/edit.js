@@ -55,6 +55,7 @@ const Edit = props => {
               year_built={home.year_built}
               property_type={home.property_type}
               basement={home.basement}
+              sold={home.sold}
             />
           ))}
         </ul>

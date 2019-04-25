@@ -34,6 +34,7 @@ const EditHouseView = props => {
   };
 
   const handleUpdate = e => {
+    let sold = false;
     const houseUpdate = {
       img: event.target.elements.image.value,
       price: event.target.elements.price.value,
@@ -47,6 +48,7 @@ const EditHouseView = props => {
       year_built: event.target.elements.yearbuilt.value,
       number_of_stories: event.target.elements.stories.value,
       basement: event.target.elements.basement.value,
+      sold: event.target.elements.sold.value,
       images: []
     };
     axios
@@ -59,6 +61,20 @@ const EditHouseView = props => {
       });
   };
 
+  const sold = () => {
+    if (!house.sold) {
+      return (
+        <label>
+          <button className="sold-btn" type="submit">
+            {" "}
+            Mark as SOLD:
+          </button>
+          <input type="hidden" name="sold" defaultValue="true" />
+        </label>
+      );
+    }
+  };
+
   return (
     <div className="house-details">
       <section className="house-main">
@@ -67,13 +83,15 @@ const EditHouseView = props => {
         <div className="house-info-box">
           <h1>{house.address}</h1>
           <span>$$${house.price}</span>
-          <br />
           <span>{house.description}</span>
-          <br />
           <span>Bedrooms: {house.bedrooms}</span>
-          <br />
           <span>Bathrooms: {house.bathrooms}</span>
-          <br />
+          <span>Property Type: {house.property_type}</span>
+          <span>City: {house.city}</span>
+          <span>Neighborhood: {house.neighborhood}</span>
+          <span>SqFt: {house.sqft}</span>
+          <span>Year Built: {house.year_built}</span>
+          <span>Stories: {house.number_of_stories}</span>
         </div>
       </section>
       <HouseImage images={house.images || []} />
@@ -140,12 +158,9 @@ const EditHouseView = props => {
         </label>
         <label>
           Does is have a Basement:
-          <input
-            type="checkbox"
-            name="basement"
-            defaultValue={house.basement}
-          />
+          <input type="text" name="basement" defaultValue={house.basement} />
         </label>
+        {sold()}
         <button type="submit">Update</button>
       </form>
       <AddImage houseid={props.match.params.id} />
@@ -155,9 +170,6 @@ const EditHouseView = props => {
         onClick={() => handleDelete()}
       >
         Delete
-      </button>
-      <button onClick={() => console.log(props.auth.user.username, house.user)}>
-        HHHH
       </button>
     </div>
   );

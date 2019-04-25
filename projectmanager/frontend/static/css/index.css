@@ -2,6 +2,12 @@
   font-family: "Open Sans", sans-serif;
   margin: 0;
 }
+body {
+  background-color: #f6f3ed;
+}
+a:hover {
+  text-decoration: none;
+}
 header a {
   text-decoration: none;
 }
@@ -18,6 +24,7 @@ li {
   list-style: none;
   padding: 0;
 }
+
 #add {
   display: block;
 }
@@ -50,7 +57,7 @@ li {
   color: black;
 }
 .house-box img {
-  max-width: 310px;
+  max-width: 100%;
 }
 .text-box {
   margin: 10px;
@@ -63,20 +70,24 @@ li {
   width: 300px;
   height: 100px;
   font-size: 0.75em;
-  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
   margin: auto;
+  margin-top: 150px;
+  margin-bottom: 250px;
 }
 .search-form input {
   width: 100%;
 }
 #map {
   height: 500px;
-  width: 100%;
+  width: 1294px;
+  margin: auto;
+  margin-bottom: 90px;
+  margin-top: 20px;
 }
 .map-view {
   height: 500px;
@@ -128,6 +139,36 @@ li {
   padding: 0;
   margin: 0;
 }
+button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 10px;
+  text-decoration: none;
+  background: ;
+
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  background: #f6f3ed;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
+}
 .map-view {
   background-color: white;
   margin: auto;
@@ -146,6 +187,9 @@ li {
   overflow-x: scroll;
   background-color: #f6f3ed;
   margin-bottom: 5px;
+  width: 1294px;
+  margin: auto;
+  margin-top: 20px;
 }
 .sub-images img {
   display: inline-block;
@@ -160,11 +204,16 @@ li {
 }
 .house-main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-gap: 10px;
+  width: 1294px;
+  margin: auto;
+}
+.account-form {
+  margin-left: 20px;
 }
 .nav-bar {
-  background-color: #f6f3ed;
+  background-color: #e8e4de;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -205,4 +254,38 @@ li {
 }
 .nav-bar-auth {
   float: right;
+}
+.footer {
+  height: 300px;
+  background-color: #bfbfbf;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.footer ul {
+  display: block;
+}
+#contact-btn {
+  background-color: blue;
+  color: #fff;
+}
+#sold p {
+  color: #fff;
+  background-color: red;
+}
+.sold-btn {
+  background: red;
+  color: #fff;
+}
+.sold-btn:hover,
+.sold-btn:focus {
+  background: #e8454f;
+}
+
+@media only screen and (max-width: 700px) {
+  ul {
+    display: grid;
+    grid-template-columns: 310px 310px;
+    padding: 0;
+    grid-gap: 18px;
+  }
 }

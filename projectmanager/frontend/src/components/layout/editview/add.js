@@ -9,8 +9,8 @@ const AddHouse = props => {
     auth: PropTypes.object.isRequired
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault();
     const house = {
       img: event.target.elements.image.value,
       user: props.auth.user.username,
@@ -28,7 +28,7 @@ const AddHouse = props => {
       images: []
     };
     axios.post(`http://localhost:8000/api/houses/`, house).then(res => {
-      if (res.status === 200) {
+      if (res.status === 201) {
         props.history.push("/edit");
       }
     });

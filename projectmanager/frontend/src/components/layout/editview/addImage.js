@@ -29,7 +29,7 @@ const AddImage = props => {
       <label>
         <input type="hidden" name="housenumber" value={props.houseid} />
       </label>
-      <button type="submit"> hhh</button>
+      <button type="submit">Add Image</button>
     </form>
   );
 };

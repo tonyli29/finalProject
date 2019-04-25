@@ -11,6 +11,7 @@ black = "*"
 django = "*"
 djangorestframework = "*"
 django-rest-knox = "*"
+django_filters = "*"
 
 [requires]
 python_version = "3.7"

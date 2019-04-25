@@ -16,7 +16,7 @@ const Houses = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/houses/?neighboorhood=&bedrooms=&bathrooms=&property_type=`
+        `https://tonylihouse.herokuapp.com/api/houses/?neighboorhood=&bedrooms=&bathrooms=&property_type=`
       )
       .then(res => {
         setHouses(res.data);

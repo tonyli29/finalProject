@@ -13,7 +13,7 @@ const NavBar = props => {
   const authLinks = (
     <ul className="nav-bar-auth">
       <li className="nav-auth-item">
-        <Link onClick={props.logout} className="auth-button">
+        <Link to="/" onClick={props.logout} className="auth-button">
           Logout
         </Link>
       </li>

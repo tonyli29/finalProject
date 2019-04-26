@@ -20,7 +20,7 @@ const Edit = props => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/houses/?neighborhood=&bedrooms=&bathrooms=&property_type=&user=${
+        `/api/houses/?neighborhood=&bedrooms=&bathrooms=&property_type=&user=${
           props.auth.user.username
         }`
       )

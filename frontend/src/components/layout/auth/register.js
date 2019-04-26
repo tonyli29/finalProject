@@ -19,23 +19,6 @@ const Register = props => {
 
   const onSubmit = e => {
     e.preventDefault();
-    // if (
-    //   e.target.elements.password.value !== e.target.elements.password2.value
-    // ) {
-    //   alert("Passwords dont match");
-    // } else {
-    //   const newUser = {
-    //     username: e.target.elements.username.value,
-    //     email: e.target.elements.email.value,
-    //     password: e.target.elements.password.value
-    //   };
-    //   console.log(newUser);
-    //   axios
-    //     .post(`http://localhost:8000/api/auth/register`, newUser)
-    //     .then(res => {
-    //       console.log(res.data.token);
-    //     });
-    // }
     if (
       e.target.elements.password.value !== e.target.elements.password2.value
     ) {

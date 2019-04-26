@@ -27,7 +27,7 @@ const AddHouse = props => {
       basement: event.target.elements.basement.value,
       images: []
     };
-    axios.post(`http://localhost:8000/api/houses/`, house).then(res => {
+    axios.post(`/api/houses/`, house).then(res => {
       if (res.status === 201) {
         props.history.push("/edit");
       }

@@ -13,23 +13,19 @@ const EditHouseView = props => {
   };
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/houses/${props.match.params.id}`)
-      .then(res => {
-        setHouse(res.data);
-      });
+    axios.get(`/api/houses/${props.match.params.id}`).then(res => {
+      setHouse(res.data);
+    });
   }, []);
 
   const handleDelete = e => {
     let result = confirm("Are you sure you want to delete?");
     if (result) {
-      axios
-        .delete(`http://localhost:8000/api/houses/${props.match.params.id}`)
-        .then(res => {
-          if (res.status === 204) {
-            props.history.push("/edit");
-          }
-        });
+      axios.delete(`/api/houses/${props.match.params.id}`).then(res => {
+        if (res.status === 204) {
+          props.history.push("/edit");
+        }
+      });
     }
   };
 
@@ -52,10 +48,7 @@ const EditHouseView = props => {
       images: []
     };
     axios
-      .put(
-        `http://localhost:8000/api/houses/${props.match.params.id}/`,
-        houseUpdate
-      )
+      .put(`/api/houses/${props.match.params.id}/`, houseUpdate)
       .then(res => {
         console.log(res);
       });

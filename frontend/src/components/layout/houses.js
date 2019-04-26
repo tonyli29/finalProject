@@ -15,9 +15,7 @@ const Houses = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://tonylihouse.herokuapp.com/api/houses/?neighboorhood=&bedrooms=&bathrooms=&property_type=`
-      )
+      .get(`/api/houses/?neighboorhood=&bedrooms=&bathrooms=&property_type=`)
       .then(res => {
         setHouses(res.data);
         // geoList();

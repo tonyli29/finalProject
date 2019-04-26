@@ -13,9 +13,7 @@ const Testing = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:8000/api/houses/?city=&bedrooms=&bathrooms=&property_type=`
-      )
+      .get(`/api/houses/?city=&bedrooms=&bathrooms=&property_type=`)
       .then(res => {
         setHouses(res.data);
       });

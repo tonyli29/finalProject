@@ -14,7 +14,7 @@ const AddImage = props => {
       images: event.target.elements.newimage.value,
       house: event.target.elements.housenumber.value
     };
-    axios.post(`http://localhost:8000/api/housesimages/`, image).then(res => {
+    axios.post(`/api/housesimages/`, image).then(res => {
       console.log(res);
       console.log(res.data);
     });

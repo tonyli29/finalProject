@@ -30,7 +30,7 @@ const CityFilter = props => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/houses/?neighborhood=${word}&bedrooms=&bathrooms=&property_type=`
+        `/api/houses/?neighborhood=${word}&bedrooms=&bathrooms=&property_type=`
       )
       .then(res => {
         setHouses(res.data);

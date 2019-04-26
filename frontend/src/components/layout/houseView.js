@@ -10,11 +10,9 @@ const HouseView = props => {
     isOpen: false
   });
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/houses/${props.match.params.id}`)
-      .then(res => {
-        setHouse(res.data);
-      });
+    axios.get(`/api/houses/${props.match.params.id}`).then(res => {
+      setHouse(res.data);
+    });
   }, []);
 
   const h = () => {

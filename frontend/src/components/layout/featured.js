@@ -14,9 +14,7 @@ const FeaturedListings = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:8000/api/houses/?neighboorhood=&bedrooms=&bathrooms=&property_type=`
-      )
+      .get(`/api/houses/?neighboorhood=&bedrooms=&bathrooms=&property_type=`)
       .then(res => {
         setHouses(res.data);
         // geoList();

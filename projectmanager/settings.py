@@ -27,7 +27,7 @@ SECRET_KEY = 'boqbls_eccnjvh$j$d%3^u^k&@99yv0lw_@6)1d60qhl4%kbkw'
 DEBUG = True
 # change when local
 
-ALLOWED_HOSTS = ['tonylihouse.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['tonylihouse.herokuapp.com', 'localhost', 'tonylirealestate.herokuapp.com']
 
 
 # Application definition

@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import auth from "./auth";
-import leads from "./house";
+import houses from "./house";
+import errors from "./errors";
 
 export default combineReducers({
   auth,
-  leads
+  houses,
+  errors
 });

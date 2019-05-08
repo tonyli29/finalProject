@@ -6,7 +6,7 @@ import {
 } from "../actions/types.js";
 
 const initialState = {
-  leads: []
+  houses: []
 };
 
 export default function(state = initialState, action) {
@@ -14,7 +14,7 @@ export default function(state = initialState, action) {
     case GET_LEADS:
       return {
         ...state,
-        leads: action.payload
+        houses: action.payload
       };
     default:
       return state;

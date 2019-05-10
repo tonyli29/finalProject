@@ -30,6 +30,11 @@ const LandingPage = () => {
       <div className="search-box">
         <h1>Search by neighbourhood</h1>
         <Search getResult={getResult} />
+        <p>First portfolio piece</p>
+        <p>Portfolio webpage under construction</p>
+        <strong>
+          <p>For more info click the "about" button one the nav bar</p>
+        </strong>
       </div>
     </div>
   );

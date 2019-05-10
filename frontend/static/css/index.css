@@ -267,6 +267,24 @@ button:active {
 .footer ul {
   display: block;
 }
+.info-box {
+  margin-left: 30px;
+}
+.about {
+  margin: 30px;
+  margin-bottom: 150px;
+}
+.about ul {
+  display: inline-block;
+}
+.about li {
+  margin-top: 10px;
+  display: block;
+}
+.about button {
+  margin: 0;
+}
+
 #contact-btn {
   background-color: blue;
   color: #fff;

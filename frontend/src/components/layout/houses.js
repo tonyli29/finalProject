@@ -79,13 +79,6 @@ const Houses = () => {
     setHouses(housesCopy.sort((a, b) => b.year_built - a.year_built));
   };
 
-  const userLocation = e => {
-    navigator.geolocation.getCurrentPosition(position => {
-      userPosition = position;
-      console.log(userPosition);
-    });
-  };
-
   return (
     <div className="all-house">
       <div className="house-list">

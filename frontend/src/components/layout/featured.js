@@ -64,12 +64,6 @@ const FeaturedListings = () => {
         });
     });
   }, [houses]);
-  const userLocation = e => {
-    navigator.geolocation.getCurrentPosition(position => {
-      userPosition = position;
-      console.log(userPosition);
-    });
-  };
 
   return (
     <div className="overlay">

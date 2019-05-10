@@ -86,13 +86,6 @@ const CityFilter = props => {
     setHouses(housesCopy.sort((a, b) => a.price - b.price));
   };
 
-  const userLocation = e => {
-    navigator.geolocation.getCurrentPosition(position => {
-      userPosition = position;
-      console.log(userPosition);
-    });
-  };
-
   return (
     <div className="all-house">
       <div className="house-list">

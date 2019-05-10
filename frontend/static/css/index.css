@@ -199,6 +199,9 @@ button:active {
 .edit-form label {
   display: block;
 }
+.add-form {
+  margin: 25px;
+}
 .add-form label {
   display: block;
 }

@@ -28,7 +28,7 @@ const AddHouse = props => {
       images: []
     };
     axios.post(`/api/houses/`, house).then(res => {
-      if (res.status === 201) {
+      if (res.status >= 201) {
         props.history.push("/edit");
       }
     });
@@ -37,51 +37,44 @@ const AddHouse = props => {
   return (
     <form className="add-form" onSubmit={handleSubmit}>
       <label>
-        Thumbnail image:
-        <input type="text" name="image" />
+        <input placeholder="Thumbnail Image" type="text" name="image" />
       </label>
       <label>
-        House Address:
-        <input type="text" name="address" />
+        <input placeholder="Address" type="text" name="address" />
       </label>
       <label>
-        Price:
-        <input type="text" name="price" />
+        <input placeholder="Price" type="text" name="price" />
       </label>
       <label>
-        Description:
-        <input type="text" name="description" />
+        <input placeholder="Description:" type="text" name="description" />
       </label>
       <label>
-        Number of bedrooms:
-        <input type="text" name="bedrooms" />
+        <input placeholder="Number of bedrooms" type="number" name="bedrooms" />
       </label>
       <label>
-        Number of bathrooms:
-        <input type="text" name="bathrooms" />
+        <input
+          placeholder="Number of bathrooms:"
+          type="number"
+          name="bathrooms"
+        />
       </label>
       <label>
-        Property Type:
-        <input type="text" name="property" />
+        <input placeholder="Property Type" type="text" name="property" />
       </label>
       <label>
-        Neighbourhood:
-        <input type="text" name="neighbourhood" />
+        <input placeholder="Neighbourhood" type="text" name="neighbourhood" />
       </label>
       <label>
-        SqFt:
-        <input type="text" name="sqft" />
+        <input placeholder="SqFt" type="text" name="sqft" />
       </label>
       <label>
-        Year Built:
-        <input type="text" name="yearbuilt" />
+        <input placeholder="Year Built" type="text" name="yearbuilt" />
       </label>
       <label>
-        Number of Stories:
-        <input type="text" name="stories" />
+        <input placeholder="Number of Stories" type="text" name="stories" />
       </label>
       <label>
-        Does is have a Basement:
+        Basement:
         <input type="checkbox" name="basement" />
       </label>
       <button type="submit">Add</button>

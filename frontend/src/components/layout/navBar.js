@@ -68,7 +68,7 @@ const NavBar = props => {
       </header>
       <ul className="navbar-list">
         <li className="nav-item">
-          <Link to="/home">Home</Link>
+          <Link to="/home">View All</Link>
         </li>
         <li className="nav-item">
           <Link to="/about">About</Link>

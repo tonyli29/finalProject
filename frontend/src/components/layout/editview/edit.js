@@ -35,7 +35,7 @@ const Edit = props => {
     <div className="all-house">
       <h1>EDIT PAGE</h1>
       <a id="add" href="/#/edit/add">
-        Add
+        Add a House
       </a>
       <div className="house-list">
         <ul>

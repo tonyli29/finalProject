@@ -77,7 +77,7 @@ const NavBar = props => {
           <Link to="/contact">Contact</Link>
         </li>
         <li className="nav-item">
-          <Link to="/edit">Edit</Link>
+          <Link to="/edit">Edit/Add</Link>
         </li>
         {props.auth.isAuthenticated ? authLinks : guestLinks}
       </ul>

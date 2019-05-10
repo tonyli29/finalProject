@@ -27,6 +27,8 @@ li {
 
 #add {
   display: block;
+  margin: 15px;
+  border: solid black 1px;
 }
 .house-details {
   margin: 20px 40px;

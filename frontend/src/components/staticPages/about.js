@@ -20,6 +20,9 @@ const About = props => {
         Error handling is also implemented so that when you login/register and
         make an error the error pop up will specifi what error has been made
       </p>
+      <strong>
+        <p>Click the Featured button for a walkthrough of the app</p>
+      </strong>
     </div>
   );
 };
